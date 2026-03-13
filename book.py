@@ -4,9 +4,9 @@ class Book:
     def __init__(self, idx, title, author):
         self.__id = idx
         self.__title = title
-        self.author = author
+        self.__author = author
         self.last_updated = datetime.now()
-
+        
     def get_id(self):
         return self.__id
     
@@ -14,10 +14,12 @@ class Book:
         return self.__title
     
     def set_title(self, new_title):
-        if not isinstance(new_title, str):
-            raise TypeError("Title harus String")
-        
-        if len(new_title) < 3:
-            raise ValueError("Title minimal 3 karakter")
-
         self.__title = new_title
+        self.last_updated = datetime.now()
+
+    def get_author(self):
+        return self.__author
+
+    def set_author(self, new_author):
+        self.__author = new_author
+        self.last_updated = datetime.now()
